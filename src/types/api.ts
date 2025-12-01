@@ -88,7 +88,7 @@ export const APP_CONSTANTS = {
     'video/mov',
     'video/quicktime',
     'video/x-msvideo'
-  ],
+  ] as string[],
   
   /** Extensions de fichier supportées */
   ACCEPTED_EXTENSIONS: ['mp4', 'avi', 'mov'],
@@ -114,7 +114,8 @@ export class FileValidator {
    * Valide un fichier selon les critères de l'application
    */
   static validate(file: File): string | null {
-    if (!APP_CONSTANTS.ACCEPTED_FORMATS.includes(file.type)) {
+    const acceptedFormats: string[] = APP_CONSTANTS.ACCEPTED_FORMATS;
+    if (!acceptedFormats.includes(file.type)) {
       return APP_CONSTANTS.ERROR_MESSAGES.INVALID_FORMAT
     }
     
