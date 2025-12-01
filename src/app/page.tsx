@@ -86,7 +86,7 @@ function VideoUploader() {
     setErrorMessage('')
 
     const formData = new FormData()
-    formData.append('video', selectedFile)
+    formData.append('file', selectedFile)
 
     try {
       const xhr = new XMLHttpRequest()
